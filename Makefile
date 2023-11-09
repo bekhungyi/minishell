@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 16:32:57 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/11/09 13:00:56 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/11/09 15:18:58 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= shell
 AR_NAME		= shell.a
 
 SRCS		=	main.c \
-				# srcs/minishell.c \
+				# minishell.c \
 
 OBJS		= $(SRCS:%.c=%.o)
 
@@ -24,7 +24,7 @@ CC			= gcc
 AR			= ar rc
 
 FLAGS		= -Wall -Werror -Wextra 
-LFLAGS		= -fsanitize=thread -lpthread -g3 -pthread 
+LFLAGS		= -fsanitize=thread -lpthread -g3 -pthread -lreadline
 
 
 $(NAME): $(OBJS)
