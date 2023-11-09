@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 16:32:57 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/11/09 15:18:58 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/11/09 16:42:53 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= shell
 AR_NAME		= shell.a
 
 SRCS		=	main.c \
-				# minishell.c \
+				minishell.c
 
 OBJS		= $(SRCS:%.c=%.o)
 
