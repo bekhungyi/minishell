@@ -6,18 +6,20 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 16:32:57 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/11/09 16:42:53 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/11/12 19:13:44 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= shell
-
+NAME		= minishell
 AR_NAME		= shell.a
 
+SRCS_DIR	= ./srcs
 SRCS		=	main.c \
-				minishell.c
+				minishell.c \
+				builtins.c \
 
-OBJS		= $(SRCS:%.c=%.o)
+# OBJS		= $(SRCS:%.c=%.o)
+OBJS		= $(addprefix $(SRCS_DIR)/, $(SRCS:.c=.o))
 
 CC			= gcc
 
@@ -26,19 +28,25 @@ AR			= ar rc
 FLAGS		= -Wall -Werror -Wextra 
 LFLAGS		= -fsanitize=thread -lpthread -g3 -pthread -lreadline
 
+LIBFTPATH	= ./libft
+LIBFTNAME	= libft.a
+
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
+	make -C $(LIBFTPATH)
+	mv $(LIBFTPATH)/$(LIBFTNAME) $(LIBFTNAME)
+	$(CC) $(FLAGS) $(LFLAGS) $(OBJS) $(LIBFTNAME) -o $(NAME)
 	$(AR) $(AR_NAME) $(OBJS)
 	rm -f $(OBJS)
  
-all: $(NAME)
-
 clean:
 	rm -f $(AR_NAME)
+	rm -f $(LIBFTPATH)/*.o
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(LIBFTNAME)
 
 re: fclean all
 

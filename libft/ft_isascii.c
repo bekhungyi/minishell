@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 13:01:08 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/09 16:46:26 by bhung-yi         ###   ########.fr       */
+/*   Created: 2022/08/02 16:37:32 by bhung-yi          #+#    #+#             */
+/*   Updated: 2022/08/02 17:22:36 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	minishell();
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }
