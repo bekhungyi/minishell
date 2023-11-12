@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:04:05 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/12 19:52:02 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/13 01:56:49 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,9 @@ void	ft_parse(t_promt *promt, char **envp)
 	else if (ft_strncmp(promt->command, "pwd", 3) == 0)
 		printf("%s\n", getcwd(NULL, 0));
 	else if (ft_strncmp(promt->command, "cd", 2) == 0)
-		ft_cd(promt);
+		ft_cd(promt, envp);
 	else if (ft_strncmp(promt->command, "env", 3) == 0)
-	{
-		while (environ[i] != NULL)
-			printf("%s\n", environ[i++]);
-	}
+		ft_env(envp);
 	else if (ft_strncmp(promt->command, "exit", 4) == 0)
 		exit(0);
 	else

@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:30:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/12 19:53:35 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/13 02:50:18 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_promt
 
 void	minishell(char **envp);
 void	ft_echo(t_promt *promt);
-void    ft_cd(t_promt *promt);
-
+void    ft_cd(t_promt *promt, char **envp);
+void    ft_env(char **envp);
 
 #endif
