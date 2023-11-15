@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nodes.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 23:49:08 by bhung-yi          #+#    #+#             */
+/*   Updated: 2023/11/14 17:37:44 by bhung-yi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/minishell.h"
+
+t_commandnode *init_command_node(t_promt *promt)
+{
+    t_commandnode *node = malloc(sizeof(t_commandnode));
+    char arr[] = {"ls", ""};
+
+    if (!node) {
+        perror("Error allocating memory for CommandNode");
+        exit(EXIT_FAILURE);
+    }
+
+    node->base.type = COMMAND_NODE;
+    node->command = 0;
+}
+
+t_node *init_node(t_promt *promt)
+{
+    int i;
+    t_node *node;
+
+    i = 0;
+    node = malloc(sizeof(t_node));
+    if (!node) {
+        perror("Error allocating memory for Node");
+        exit(EXIT_FAILURE);
+    }
+    if (promt->has_pipe == 1)
+        init_pipe_node(promt);
+    
+    
+    return (node);
+}

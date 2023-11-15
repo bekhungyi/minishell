@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:30:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/13 02:50:18 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:08:13 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,55 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
+#include <signal.h>
+#include <term.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 
 extern char **environ;  // Declare the global environment variable
 
+enum NodeType {
+    COMMAND_NODE,
+    PIPE_NODE,
+    REDIRECTION_NODE,
+};
+
+typedef struct s_node {
+    enum NodeType type;
+    // struct s_node *next;
+    // struct s_node *prev;
+
+}   t_node;
+
+typedef struct s_commandnode
+{
+    t_node  base;
+    char    *command;
+    char    **argv;
+}   t_commandnode;
+
+typedef struct s_pipenode
+{
+    t_node  base;
+    t_node  *left;
+    t_node  *right;
+}   t_pipenode;
+
+typedef struct s_redirectionnode
+{
+    t_node  base;
+    t_node  *command_node;
+    char    *infile;
+    char    *outfile;
+}   t_redirectionnode;
+
+
 typedef struct s_promt
 {
     char	*command;
     char	**argv;
+    int     has_pipe;
+    int     has_redir;
     // char	**envp;
 
     int     option;
@@ -38,5 +78,7 @@ void	minishell(char **envp);
 void	ft_echo(t_promt *promt);
 void    ft_cd(t_promt *promt, char **envp);
 void    ft_env(char **envp);
+
+void	signal_handler(int num);
 
 #endif

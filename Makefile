@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/17 16:32:57 by bhung-yi          #+#    #+#              #
-#    Updated: 2023/11/12 19:13:44 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/11/14 19:24:36 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS_DIR	= ./srcs
 SRCS		=	main.c \
 				minishell.c \
 				builtins.c \
+				handler.c \
 
 # OBJS		= $(SRCS:%.c=%.o)
 OBJS		= $(addprefix $(SRCS_DIR)/, $(SRCS:.c=.o))
@@ -28,6 +29,9 @@ AR			= ar rc
 FLAGS		= -Wall -Werror -Wextra 
 LFLAGS		= -fsanitize=thread -lpthread -g3 -pthread -lreadline
 
+CPPFLAGS	= -I/opt/homebrew/opt/readline/include
+LDFLAGS		= -L/opt/homebrew/opt/readline/lib
+
 LIBFTPATH	= ./libft
 LIBFTNAME	= libft.a
 
@@ -36,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C $(LIBFTPATH)
 	mv $(LIBFTPATH)/$(LIBFTNAME) $(LIBFTNAME)
-	$(CC) $(FLAGS) $(LFLAGS) $(OBJS) $(LIBFTNAME) -o $(NAME)
+	$(CC) $(FLAGS) $(CPPFLAGS) $(LDFLAGS) $(LFLAGS) $(OBJS) $(LIBFTNAME) -o $(NAME)
 	$(AR) $(AR_NAME) $(OBJS)
 	rm -f $(OBJS)
  
