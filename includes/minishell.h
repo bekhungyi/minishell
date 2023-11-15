@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:30:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/14 20:08:13 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:04:53 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,21 @@ extern char **environ;  // Declare the global environment variable
 
 enum NodeType {
     COMMAND_NODE,
+	VAR_NODE,
     PIPE_NODE,
     REDIRECTION_NODE,
 };
 
 typedef struct s_node {
-    enum NodeType type;
-    // struct s_node *next;
-    // struct s_node *prev;
+    enum NodeType	type;
+	int				node_count;
+    struct s_node	*first_node;
+    struct s_node	*next_node;
+    struct s_node	*prev_node;
+
+	char			*value;
+
+	int				in_quote;
 
 }   t_node;
 

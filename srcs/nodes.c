@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 23:49:08 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/14 17:37:44 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:36:22 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,20 @@ t_node *init_node(t_promt *promt)
     
     
     return (node);
+}
+
+
+
+t_node *new_node(enum NodeType type)
+{
+    t_node *node;
+    
+    node = malloc(sizeof(t_node));
+    if(!node)
+        return NULL;
+    
+    // memset(node, 0, sizeof(struct node_s));
+    node->type = type;
+    
+    return node;
 }

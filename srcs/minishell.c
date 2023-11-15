@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 15:04:05 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/14 20:07:53 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:44:15 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,19 +126,19 @@ void	ft_token(char *str, t_promt *promt, char **envp)
 	run_builtins(promt, envp);
 }
 
-char* ft_readline(const char *prompt)
-{
-	char *buffer;
+// char* ft_readline(const char *prompt)
+// {
+// 	char *buffer;
 	
-	buffer = readline(prompt);
-	if (!buffer) {
-		return NULL;
-	}
-	if (strlen(buffer) > 0) {
-		add_history(buffer);
-	}
-	return buffer;
-}
+// 	buffer = readline(prompt);
+// 	if (!buffer) {
+// 		return NULL;
+// 	}
+// 	if (strlen(buffer) > 0) {
+// 		add_history(buffer);
+// 	}
+// 	return buffer;
+// }
 
 // Example AST for the command: "ls -l | grep .txt > output.txt"
 
@@ -152,7 +152,7 @@ void	minishell(char **envp)
 
 	while (status != -1) {
 		signal_handler(0);
-		buffer = ft_readline("user1@minishell > ");
+		// buffer = ft_readline("user1@minishell > ");
 		if (!buffer)
 			break ;
 		ft_token(buffer, &promt, envp);
