@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:30:32 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/15 23:04:53 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:30:18 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct s_node {
     struct s_node	*first_node;
     struct s_node	*next_node;
     struct s_node	*prev_node;
+
+    char            **args;
 
 	char			*value;
 
@@ -82,7 +84,8 @@ typedef struct s_promt
 }	t_promt;
 
 void	minishell(char **envp);
-void	ft_echo(t_promt *promt);
+// void	ft_echo(t_promt *promt);
+void ft_echo(t_node *node);
 void    ft_cd(t_promt *promt, char **envp);
 void    ft_env(char **envp);
 

@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 23:49:08 by bhung-yi          #+#    #+#             */
-/*   Updated: 2023/11/15 22:36:22 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:19:21 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ t_node *new_node(enum NodeType type)
     node = malloc(sizeof(t_node));
     if(!node)
         return NULL;
-    
-    // memset(node, 0, sizeof(struct node_s));
+    node->first_node = NULL;
     node->type = type;
     
     return node;

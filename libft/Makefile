@@ -6,7 +6,7 @@
 #    By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 17:28:18 by bhung-yi          #+#    #+#              #
-#    Updated: 2022/09/21 12:45:18 by bhung-yi         ###   ########.fr        #
+#    Updated: 2023/11/17 08:55:30 by bhung-yi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ SRCS	= ft_isalpha.c \
 		  ft_putchar_fd.c \
 		  ft_putstr_fd.c \
 		  ft_putendl_fd.c \
-		  ft_putnbr_fd.c
+		  ft_putnbr_fd.c \
+		  ft_isspace.c \
 
 OBJS	= ${SRCS:.c=.o}
 

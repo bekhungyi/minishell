@@ -6,7 +6,7 @@
 /*   By: bhung-yi <bhung-yi@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 18:55:19 by bhung-yi          #+#    #+#             */
-/*   Updated: 2022/09/21 18:12:21 by bhung-yi         ###   ########.fr       */
+/*   Updated: 2023/11/17 08:55:21 by bhung-yi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+int		ft_isspace(int c);
 
 #endif
